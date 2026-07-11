@@ -1,8 +1,8 @@
-// app.js — Auth routes working, vehicle routes NOT yet registered
 import express from 'express';
 import cors from 'cors';
-import './config/env.js';
+import './config/env.js'; // Validates required env vars at import time — fails fast if misconfigured
 import authRoutes from './routes/authRoutes.js';
+import vehicleRoutes from './routes/vehicleRoutes.js';
 
 const app = express();
 
@@ -10,8 +10,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Routes — only auth is wired up so far
+// Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/vehicles', vehicleRoutes);
 
 // Root route
 app.get('/', (req, res) => {
