@@ -91,4 +91,62 @@ describe('Vehicle Endpoints', () => {
       expect(res.body[0]).toHaveProperty('make', 'Tesla');
     });
   });
+
+  describe('GET /api/vehicles/search', () => {
+    beforeEach(async () => {
+      await Vehicle.create([
+        { make: 'Toyota', model: 'RAV4', category: 'SUV', price: 28000, quantity: 10 },
+        { make: 'Toyota', model: 'Prius', category: 'Hybrid', price: 25000, quantity: 2 },
+        { make: 'Ford', model: 'F-150', category: 'Truck', price: 45000, quantity: 4 }
+      ]);
+    });
+
+    it('should filter vehicles by make', async () => {
+      const res = await request(app)
+        .get('/api/vehicles/search?make=Toyota')
+        .set('Authorization', `Bearer ${userToken}`);
+      
+      expect(res.status).toBe(200);
+      expect(res.body.length).toBe(2);
+      expect(res.body.every(c => c.make === 'Toyota')).toBe(true);
+    });
+
+    it('should filter vehicles by price range', async () => {
+      const res = await request(app)
+        .get('/api/vehicles/search?minPrice=30000&maxPrice=50000')
+        .set('Authorization', `Bearer ${userToken}`);
+      
+      expect(res.status).toBe(200);
+      expect(res.body.length).toBe(2);
+    });
+
+    it('should filter vehicles by category', async () => {
+      const res = await request(app)
+        .get('/api/vehicles/search?category=Hybrid')
+        .set('Authorization', `Bearer ${userToken}`);
+      
+      expect(res.status).toBe(200);
+      expect(res.body.length).toBe(1);
+      expect(res.body[0]).toHaveProperty('model', 'Prius');
+    });
+
+    it('should apply make, category, and price filters together (combined filter)', async () => {
+      const res = await request(app)
+        .get('/api/vehicles/search?make=Ford&category=Truck&minPrice=40000&maxPrice=50000')
+        .set('Authorization', `Bearer ${userToken}`);
+
+      expect(res.status).toBe(200);
+      expect(res.body.length).toBe(1);
+      expect(res.body[0]).toHaveProperty('model', 'F-150');
+    });
+
+    it('should return an empty array when combined filters match nothing', async () => {
+      const res = await request(app)
+        .get('/api/vehicles/search?make=Toyota&category=Truck')
+        .set('Authorization', `Bearer ${userToken}`);
+
+      expect(res.status).toBe(200);
+      expect(res.body).toEqual([]);
+    });
+  });
 });
