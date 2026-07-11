@@ -1,0 +1,93 @@
+/* ==========================================================================
+   AutoVault Design Tokens
+   Concept: premium car showroom after hours — espresso-leather surfaces,
+   warm spotlighting, brushed-brass fixtures. A serif carries the warmth;
+   brass linework (see ShowroomBlueprint) is the house illustration style.
+   ========================================================================== */
+
+:root {
+  /* ---- Color: surfaces (espresso / leather) ---- */
+  --bg: #17130f;
+  --bg-raised: #1d1811;
+  --surface: #241d15;
+  --surface-hover: #2d2519;
+  --surface-sunken: #120e0a;
+
+  /* ---- Color: borders ---- */
+  --border: #362c1e;
+  --border-strong: #4d3f2a;
+  --border-hairline: rgba(244, 238, 225, 0.07);
+
+  /* ---- Color: text (warm ivory, showroom lighting) ---- */
+  --text: #f4eee1;
+  --text-muted: #baac90;
+  --text-faint: #7c7259;
+
+  /* ---- Color: accent — brushed brass ---- */
+  --accent: #c9a15d;
+  --accent-strong: #ddb876;
+  --accent-soft: rgba(201, 161, 93, 0.16);
+  --accent-glow: rgba(201, 161, 93, 0.4);
+
+  /* ---- Color: verdigris — aged-brass green, "available" ---- */
+  --teal: #8ba07a;
+  --teal-strong: #a2b88e;
+  --teal-soft: rgba(139, 160, 122, 0.16);
+
+  /* ---- Color: oxblood — "sold / attention" ---- */
+  --danger: #b6493f;
+  --danger-strong: #cf5b4f;
+  --danger-soft: rgba(182, 73, 63, 0.16);
+
+  /* ---- Type families ---- */
+  --font-display: 'Domine', 'Georgia', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+
+  /* ---- Type scale ---- */
+  --text-xs: 0.72rem;
+  --text-sm: 0.85rem;
+  --text-base: 0.97rem;
+  --text-md: 1.15rem;
+  --text-lg: 1.55rem;
+  --text-xl: 2.1rem;
+  --text-2xl: 2.8rem;
+  --text-3xl: 3.6rem;
+
+  /* ---- Spacing ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* ---- Radius: soft, upholstered — not console-sharp ---- */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* ---- Shadow ---- */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.28);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 56px rgba(0, 0, 0, 0.55);
+
+  /* ---- Motion ---- */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --fast: 0.15s var(--ease);
+  --normal: 0.28s var(--ease);
+  --slow: 0.6s var(--ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

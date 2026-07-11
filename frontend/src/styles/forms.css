@@ -1,0 +1,162 @@
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  padding: 12px 22px;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform var(--fast), background var(--fast), border-color var(--fast),
+    box-shadow var(--fast), color var(--fast), opacity var(--fast);
+  white-space: nowrap;
+}
+.btn:active { transform: scale(0.97); }
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  transform: none;
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, var(--accent-strong), var(--accent));
+  color: #1c1409;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15) inset;
+}
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(180deg, #e6c583, var(--accent-strong));
+  box-shadow: 0 0 0 4px var(--accent-soft), 0 1px 0 rgba(255, 255, 255, 0.2) inset;
+}
+
+.btn-secondary {
+  background: var(--surface);
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+.btn-secondary:hover:not(:disabled) {
+  background: var(--surface-hover);
+  border-color: var(--accent);
+  color: var(--accent-strong);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-muted);
+  border-color: var(--border-strong);
+}
+.btn-outline:hover:not(:disabled) {
+  color: var(--text);
+  border-color: var(--text-muted);
+  background: var(--surface);
+}
+
+.btn-danger {
+  background: transparent;
+  color: var(--danger-strong);
+  border-color: rgba(182, 73, 63, 0.4);
+}
+.btn-danger:hover:not(:disabled) {
+  background: var(--danger-soft);
+  border-color: var(--danger);
+}
+
+.btn-danger-solid {
+  background: var(--danger);
+  color: #241009;
+  border-color: var(--danger);
+}
+.btn-danger-solid:hover:not(:disabled) {
+  background: var(--danger-strong);
+  box-shadow: 0 0 0 4px var(--danger-soft);
+}
+
+.btn-block { width: 100%; }
+.btn-sm { padding: 9px 14px; font-size: var(--text-xs); }
+.btn-icon { font-weight: 700; }
+
+/* ==========================================================================
+   Form controls
+   ========================================================================== */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.form-row {
+  display: flex;
+  gap: var(--space-4);
+}
+.flex-1 { flex: 1; }
+
+.form-group label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.form-group input,
+.form-group select {
+  background: var(--surface-sunken);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  color: var(--text);
+  font-size: var(--text-base);
+  transition: border-color var(--fast), box-shadow var(--fast);
+}
+
+.form-group input::placeholder { color: var(--text-faint); }
+
+.form-group input:hover,
+.form-group select:hover {
+  border-color: var(--border-strong);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.form-select {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--text-muted) 50%),
+    linear-gradient(135deg, var(--text-muted) 50%, transparent 50%);
+  background-position: calc(100% - 18px) center, calc(100% - 13px) center;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.form-error-alert {
+  background: var(--danger-soft);
+  border: 1px solid rgba(182, 73, 63, 0.4);
+  color: #f0c3bd;
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-4);
+}
+
+.range-inputs {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.range-separator {
+  color: var(--text-faint);
+  font-size: var(--text-xs);
+}

@@ -1,0 +1,13 @@
+/* ==========================================================================
+   AutoVault — Dealership Inventory Console
+   Design system entry point. Import order matters: tokens -> base ->
+   shared form/button primitives -> layout/shell -> page-specific modules.
+   ========================================================================== */
+
+@import './tokens.css';
+@import './base.css';
+@import './forms.css';
+@import './layout.css';
+@import './card.css';
+@import './modal.css';
+@import './auth.css';

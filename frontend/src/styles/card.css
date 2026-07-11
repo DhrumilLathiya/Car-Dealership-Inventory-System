@@ -1,0 +1,165 @@
+/* ==========================================================================
+   Vehicle card — "showroom placard"
+   ========================================================================== */
+
+.vehicle-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform var(--normal), border-color var(--normal), box-shadow var(--normal);
+}
+.vehicle-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+}
+.vehicle-card.out-of-stock-card { opacity: 0.68; }
+.vehicle-card.out-of-stock-card:hover { transform: none; }
+
+/* ---- Icon plate: warm spotlight backdrop for the category glyph ---- */
+.card-plate {
+  position: relative;
+  height: 148px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse 220px 120px at 50% 40%, rgba(201, 161, 93, 0.16), transparent 70%),
+    var(--surface-sunken);
+  border-bottom: 1px solid var(--border);
+}
+.card-plate svg { width: 132px; height: auto; }
+
+.price-tag {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  background: var(--bg-raised);
+  border: 1px solid var(--accent);
+  color: var(--accent-strong);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  padding: 6px 12px;
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
+}
+
+.out-of-stock-badge {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  background: var(--danger-soft);
+  color: var(--danger-strong);
+  border: 1px solid rgba(182, 73, 63, 0.4);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  z-index: 2;
+}
+
+.card-header {
+  padding: var(--space-4) var(--space-4) 0;
+}
+.vehicle-category-label {
+  display: block;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 4px;
+}
+.vehicle-title {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  font-family: var(--font-display);
+}
+.vehicle-title .model-name {
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.card-body {
+  padding: var(--space-3) var(--space-4) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  flex: 1;
+}
+
+.card-divider {
+  border: none;
+  border-top: 1px solid var(--border-hairline);
+  margin: 2px 0;
+}
+
+/* ---- Availability meter: a single elegant capacity line ---- */
+
+.availability-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.availability-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--text-sm);
+}
+.availability-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--text-faint);
+  flex-shrink: 0;
+}
+.availability-dot.tone-healthy { background: var(--teal); box-shadow: 0 0 6px 1px rgba(139,160,122,0.5); }
+.availability-dot.tone-low { background: var(--accent); box-shadow: 0 0 6px 1px var(--accent-glow); }
+.availability-dot.tone-empty { background: var(--danger); }
+
+.availability-count {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-sm);
+}
+.availability-count.tone-healthy { color: var(--teal-strong); }
+.availability-count.tone-low { color: var(--accent-strong); }
+.availability-count.tone-empty { color: var(--danger-strong); }
+
+.availability-meter {
+  height: 3px;
+  background: var(--surface-sunken);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.availability-meter-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width var(--slow);
+}
+.availability-meter-fill.tone-healthy { background: var(--teal); }
+.availability-meter-fill.tone-low { background: var(--accent); }
+.availability-meter-fill.tone-empty { background: var(--danger); width: 100% !important; }
+
+.card-actions {
+  padding: 0 var(--space-4) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.btn-purchase { width: 100%; }
+
+.admin-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+}

@@ -1,0 +1,309 @@
+/* ==========================================================================
+   Navbar — boutique showroom header
+   ========================================================================== */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgba(23, 19, 15, 0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* Brass monogram badge */
+.logo-mark {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background:
+    radial-gradient(circle at 30% 25%, rgba(221, 184, 118, 0.35), transparent 60%);
+}
+.logo-mark::before {
+  content: 'AV';
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent-strong);
+  letter-spacing: 0.02em;
+}
+
+.logo-text {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-md);
+  letter-spacing: -0.005em;
+  color: var(--text);
+}
+.logo-text .logo-sub {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.64rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-top: 2px;
+}
+
+.navbar-user-panel {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 6px 6px 6px 16px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+}
+
+.user-email {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.user-role-badge {
+  font-family: var(--font-body);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 5px 11px;
+  border-radius: 999px;
+}
+.user-role-badge.admin {
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  border: 1px solid rgba(201, 161, 93, 0.35);
+}
+.user-role-badge.user {
+  background: var(--teal-soft);
+  color: var(--teal-strong);
+  border: 1px solid rgba(139, 160, 122, 0.35);
+}
+
+/* ==========================================================================
+   Dashboard shell
+   ========================================================================== */
+
+.dashboard-layout { min-height: 100vh; }
+
+.dashboard-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--space-6);
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  flex-wrap: wrap;
+  padding-bottom: var(--space-5);
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.header-titles .eyebrow { margin-bottom: var(--space-2); display: block; }
+.header-titles h1 {
+  font-size: var(--text-2xl);
+}
+.header-titles p {
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  margin-top: var(--space-2);
+}
+
+/* ---- Fleet summary strip ---- */
+
+.fleet-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.summary-cell {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.summary-value {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--text);
+}
+.summary-value.accent-value { color: var(--accent-strong); }
+.summary-value.danger-value { color: var(--danger-strong); }
+.summary-value.teal-value { color: var(--teal-strong); }
+
+/* ==========================================================================
+   Filter console — "Find Your Car"
+   ========================================================================== */
+
+.search-filter-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-5) var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.filter-heading {
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  margin-bottom: var(--space-4);
+}
+
+.filter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.filter-group label {
+  font-weight: 600;
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.filter-group input {
+  background: var(--surface-sunken);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 11px 13px;
+  color: var(--text);
+  font-size: var(--text-sm);
+}
+.filter-group input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.filter-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+}
+
+/* ==========================================================================
+   Vehicle grid / empty / loading / error states
+   ========================================================================== */
+
+.vehicles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: var(--space-5);
+}
+
+.dashboard-error-alert {
+  background: var(--danger-soft);
+  border: 1px solid rgba(182, 73, 63, 0.4);
+  color: #f0c3bd;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-5);
+  font-size: var(--text-sm);
+}
+
+.dashboard-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8) 0;
+  gap: var(--space-3);
+  color: var(--text-muted);
+}
+
+.skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: var(--space-5);
+}
+.skeleton-card {
+  height: 320px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: linear-gradient(100deg, var(--surface) 30%, var(--surface-hover) 45%, var(--surface) 60%);
+  background-size: 250% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0% { background-position: 120% 0; }
+  100% { background-position: -20% 0; }
+}
+
+.empty-inventory {
+  text-align: center;
+  padding: var(--space-8) var(--space-5);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-lg);
+  color: var(--text-muted);
+}
+.empty-inventory h3 {
+  color: var(--text);
+  margin: var(--space-4) 0 var(--space-2);
+  font-size: var(--text-md);
+}
+.empty-inventory p {
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-4);
+}
+.empty-mark {
+  display: inline-flex;
+  width: 90px;
+  opacity: 0.55;
+  margin-bottom: var(--space-2);
+}
+.empty-mark svg {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 640px) {
+  .dashboard-content { padding: var(--space-4); }
+  .navbar-container { padding: var(--space-3) var(--space-4); }
+  .navbar-user-panel { gap: var(--space-2); }
+  .user-email { display: none; }
+  .dashboard-header { align-items: flex-start; }
+}
